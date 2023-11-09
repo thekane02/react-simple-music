@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;600;700;800&display=swap"); /* font-family: 'Merriweather Sans', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"); /* font-family: 'Inter', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-dark;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+  opacity: 0;
+  border-radius: 100rem;
+  transition: all 0.1s;
+}
+::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body {
+    @apply font-primary;
+  }
+  // h1,
+  // h2,
+  // h3 {
+  //   @apply font-secondary;
+  // }
+}
+
+.hidden-input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+body {
+  .input-text {
+    @apply w-full p-2 text-[16px] bg-transparent border-2 rounded-xl outline-none border-secondary text-white focus:shadow-lightness;
+    foo: bar;
+  }
+  .react-date-picker {
+    @apply w-full pl-2 pr-4 text-base font-medium bg-transparent border-2 rounded-xl border-primary;
+    foo: bar;
+    height: 44px;
+    .react-date-picker__wrapper {
+      @apply items-center justify-between border-none;
+      foo: bar;
+    }
+    .react-date-picker__inputGroup {
+      @apply text-white;
+      foo: bar;
+    }
+    .react-date-picker__clear-button {
+      @apply hidden;
+      foo: bar;
+    }
+    .react-date-picker__inputGroup {
+      min-width: 0;
+      flex-grow: 0;
+    }
+    .react-date-picker__button {
+      padding: 0;
+    }
+  }
+  .react-date-picker__calendar .react-calendar {
+    @apply border-none rounded-lg;
+    foo: bar;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    @apply bg-transparent;
+    foo: bar;
+  }
+  .react-calendar__tile:not(
+      .react-calendar__tile--active,
+      .react-calendar__tile--now
+    ):enabled:hover,
+  .react-calendar__tile:not(
+      .react-calendar__tile--active,
+      .react-calendar__tile--now
+    ):enabled:focus {
+    @apply text-primary;
+    foo: bar;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus,
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover {
+    @apply text-white rounded-lg bg-secondary;
+    foo: bar;
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus,
+  .react-calendar__tile--now,
+  .react-calendar__tile--now:hover {
+    @apply text-white rounded-sm bg-primary;
+    foo: bar;
+  }
+  .react-date-picker__calendar-button__icon {
+    @apply stroke-[#8d949f];
+    foo: bar;
+  }
+  .react-date-picker__button:enabled:hover .react-date-picker__button__icon,
+  .react-date-picker__button:enabled:focus .react-date-picker__button__icon {
+    @apply stroke-secondary;
+    foo: bar;
+  }
+}
+
+.menu__item span {
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+  svg,
+  path {
+    @apply fill-gray-blur opacity-50 transition-all;
+  }
+}
+
+.menu__item:hover span {
+  svg,
+  path {
+    @apply fill-secondary opacity-100;
+  }
+  svg {
+    @apply drop-shadow-lightness;
+  }
+}
+
+.menu__item--active span {
+  svg,
+  path {
+    @apply fill-secondary opacity-100;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.heading {
+  position: relative;
+  display: inline-block;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 80px;
+    bottom: -20%;
+    left: 0;
+    @apply bg-secondary rounded-full;
+  }
+}
+
+.modal-content {
+  min-height: 60vh;
+  &::before,
+  &::after {
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 140px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+  }
+  &::before {
+    background-image: url("../public/UpWave.svg");
+    background-position: bottom;
+    top: 0;
+  }
+  &::after {
+    background-image: url("../public/DownWave.svg");
+    background-position: top;
+    bottom: 0;
+  }
+}
+
+:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
