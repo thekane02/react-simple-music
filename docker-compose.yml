@@ -1,0 +1,25 @@
+services:
+    nest:
+        env_file:
+            - selected.env
+        image: vuongsyhanh/selected
+        command: sh -c "yarn build && yarn prod"
+        ports:
+            - 3000:3000
+        volumes:
+            - ./data/filesElected:/usr/src/app/data/filesElected
+        networks:
+            - selected
+    mongo:
+        env_file:
+            - selected.env
+        image: mongo:focal
+        restart: always
+        ports:
+            - 27017:27017
+        volumes:
+            - ./data/mongo:/data/db
+        networks:
+            - selected
+networks:
+  selected:
